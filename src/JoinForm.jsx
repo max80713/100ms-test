@@ -4,8 +4,8 @@ import { useHMSActions } from "@100mslive/react-sdk";
 function JoinForm() {
   const hmsActions = useHMSActions();
   const [inputValues, setInputValues] = useState({
-    name: "",
-    token: ""
+    userName: "",
+    roomCode: "rll-rayp-uef"
   });
 
   const handleInputChange = (e) => {
@@ -38,21 +38,23 @@ function JoinForm() {
       <div className="input-container">
         <input
           required
-          value={inputValues.name}
+          value={inputValues.userName}
           onChange={handleInputChange}
-          id="name"
+          id="user-name"
           type="text"
-          name="name"
+          name="userName"
           placeholder="Your name"
         />
       </div>
       <div className="input-container">
         <input
+          required
+          value={inputValues.roomCode}
+          onChange={handleInputChange}
           id="room-code"
           type="text"
           name="roomCode"
           placeholder="Room code"
-          onChange={handleInputChange}
         />
       </div>
       <button className="btn-primary">Join</button>
